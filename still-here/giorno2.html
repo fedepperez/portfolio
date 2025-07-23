@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Still Here - Giorno 2</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #f2f2f2;
+            font-family: 'Courier New', monospace;
+            padding: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .choice {
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #666;
+        }
+
+        .outcome {
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        #avanti {
+            display: none;
+            margin-top: 20px;
+            background-color: #cc3d74;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Giorno 2: Frammenti</h1>
+    <p>Durante la notte, qualcosa si è incrinato. I sogni sembravano troppo lucidi, e la voce della donna di ieri
+        riecheggia ancora nella tua mente.</p>
+    <p>Nel corridoio, due possibilità: un giovane sconosciuto urla in preda al panico, oppure puoi accedere a una
+        cartella nominata con il tuo nome.</p>
+
+    <div class="choice">
+        <p><strong>Cosa fai?</strong></p>
+        <button onclick="scegli('aiuta')">Aiuti il ragazzo sconosciuto</button>
+        <button onclick="scegli('cartella')">Apri la cartella con il tuo nome</button>
+    </div>
+
+    <div id="risultato" class="outcome"></div>
+    <button id="avanti" onclick="vaiAvanti()">Prosegui al Giorno 3</button>
+
+    <script src="../still-here/js/engine.js"></script>
+    <script>
+        if (bloccoSeGiaScelto("giorno2")) {
+            document.getElementById("risultato").innerText = "Hai già vissuto questo giorno. Preparati per il prossimo.";
+            document.getElementById("avanti").style.display = "inline-block";
+        }
+
+        function scegli(scelta) {
+            salvaScelta("giorno2", scelta);
+            const r = document.getElementById("risultato");
+
+            if (scelta === "aiuta") {
+                r.innerHTML = "Lo raggiungi. Piange, dice di non ricordare il suo nome. Ti stringe il braccio come se ti conoscesse. Un frammento di memoria si spezza dentro di te.";
+            } else {
+                r.innerHTML = "La cartella si apre. Dentro: file corrotti, immagini sfocate, suoni disturbati. Un nome: il tuo. Una data: ieri. Una voce registrata: \"Tu non sei realə.\"";
+            }
+
+            document.querySelectorAll(".choice button").forEach(btn => btn.disabled = true);
+            document.getElementById("avanti").style.display = "inline-block";
+        }
+
+        function vaiAvanti() {
+            window.location.href = "giorno3.html";
+        }
+    </script>
+</body>
+
+</html>

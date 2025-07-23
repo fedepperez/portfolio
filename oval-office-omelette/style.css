@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  padding: 0;
+  cursor: url('./egg.png') 16 16, auto;
+  background-color: black;
+  font-family: 'Courier New', monospace;
+  overflow-x: hidden;
+}
+
+/* SPLASH SCREEN */
+#splash-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#splash-screen h1 {
+  font-size: clamp(24px, 6vw, 48px);
+  color: white;
+  text-shadow: 2px 2px #ffaa00;
+  margin-bottom: 10px;
+}
+
+#splash-screen h2 {
+  font-size: clamp(18px, 4.5vw, 30px);
+  color: #ffaa00;
+  text-shadow: 1px 1px black;
+  font-style: italic;
+}
+
+/* GIOCO */
+#game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10vh 5vw 5vh;
+  text-align: center;
+  box-sizing: border-box;
+  min-height: 100vh;
+  width: 100%;
+}
+
+#game-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+}
+
+#game-container h1 {
+  font-size: clamp(24px, 7vw, 48px);
+  color: white;
+  text-shadow: 2px 2px #ffaa00;
+  margin: 0;
+}
+
+#game-container h2 {
+  font-size: clamp(18px, 5vw, 32px);
+  color: #ffaa00;
+  text-shadow: 1px 1px black;
+  font-style: italic;
+  margin: 0;
+}
+
+#trump {
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  margin: 3vh 0;
+}
+
+#splash {
+  position: absolute;
+  width: clamp(40px, 12vw, 100px);
+  height: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+#egg-message {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: clamp(16px, 4vw, 24px);
+  color: #ffaa00;
+  text-shadow: 1px 1px #000;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+#egg-counter {
+  position: fixed;
+  top: 2vh;
+  right: 2vw;
+  font-size: clamp(16px, 4vw, 26px);
+  color: #ffaa00;
+  text-shadow: 1px 1px #000;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+/* Bottoni */
+#reset-button,
+#audio-toggle,
+#home-button {
+  position: fixed;
+  bottom: 5rem;
+  font-size: clamp(14px, 3vw, 20px);
+  padding: 8px 14px;
+  background-color: #ffaa00;
+  border: none;
+  border-radius: 6px;
+  color: black;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 2px 2px #000;
+  z-index: 5;
+}
+
+/* Reset a sinistra */
+#reset-button {
+  left: 4vw;
+}
+
+/* Audio a destra */
+#audio-toggle {
+  right: 4vw;
+}
+
+/* Home a 1rem a sinistra di audio-toggle */
+#home-button {
+  right: calc(4vw + 2.5rem + clamp(14px, 3vw, 20px) * 2);
+}
+
+/* Hover effetto */
+#reset-button:hover,
+#audio-toggle:hover,
+#home-button:hover {
+  background-color: #ffcc33;
+  transform: scale(1.05);
+}

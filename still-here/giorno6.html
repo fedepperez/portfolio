@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Still Here - Giorno 6</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #f2f2f2;
+            font-family: 'Courier New', monospace;
+            padding: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .finale {
+            margin-top: 40px;
+            font-style: italic;
+            font-size: 1.2rem;
+        }
+
+        .scelte {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        #restart {
+            margin-top: 40px;
+            padding: 12px 24px;
+            background-color: #cc3d74;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        #restart:hover {
+            background-color: #e573a3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Giorno 6: Fine</h1>
+    <p>Il mondo è fermo. Ogni suono è sospeso, ogni frammento immobile. Davanti a te, una sola schermata:
+        <em>“Valutazione completa. Procedere?”</em>
+    </p>
+
+    <div class="finale" id="finale"></div>
+    <div class="scelte" id="scelte"></div>
+    <button id="restart" onclick="window.location.href='ricomincia.html'">Ricomincia il gioco</button>
+
+    <script>
+        function mostraFinale() {
+            const giorno1 = recuperaScelta("giorno1");
+            const giorno2 = recuperaScelta("giorno2");
+            const giorno3 = recuperaScelta("giorno3");
+            const giorno4 = recuperaScelta("giorno4");
+            const giorno5 = recuperaScelta("giorno5");
+
+            let finale = "";
+
+            if (giorno1 === "anziana" && giorno2 === "aiuta" && giorno3 === "parla" && giorno4 === "stabilizza" && giorno5 === "ascolta") {
+                finale = "Hai scelto l'empatia. Hai ascoltato, aiutato, cercato di capire. Il sistema si spegne dolcemente, ma una luce resta: sei statə ricordatə.";
+            } else if (giorno4 === "spegni" && giorno5 === "fuggi") {
+                finale = "Hai tagliato i ponti. Hai cercato di spegnere tutto, di fuggire da te stessə. Il sistema collassa. E tu con esso.";
+            } else if (giorno3 === "chip" && giorno4 === "stabilizza") {
+                finale = "Hai scelto il controllo. Il nucleo si riallinea, ma a un costo: hai perso ogni traccia di umanità. Sei funzionale, ma vuotə.";
+            } else {
+                finale = "Le tue scelte sono state frammentate. Contraddittorie. Il sistema non sa cosa fare di te. Così... resta tutto com'è. E tu resti. Per sempre.";
+            }
+
+            document.getElementById("finale").innerText = finale;
+
+            document.getElementById("scelte").innerHTML = `
+        <p><strong>Le tue scelte:</strong></p>
+        <p>Giorno 1: ${giorno1}</p>
+        <p>Giorno 2: ${giorno2}</p>
+        <p>Giorno 3: ${giorno3}</p>
+        <p>Giorno 4: ${giorno4}</p>
+        <p>Giorno 5: ${giorno5}</p>
+      `;
+        }
+
+        mostraFinale();
+    </script>
+</body>
+
+</html>

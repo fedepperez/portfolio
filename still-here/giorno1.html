@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Still Here - Giorno 1</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #f2f2f2;
+            font-family: 'Courier New', monospace;
+            padding: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .choice {
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #666;
+        }
+
+        .outcome {
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        #avanti {
+            display: none;
+            margin-top: 20px;
+            background-color: #cc3d74;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Giorno 1: Risveglio</h1>
+    <p>Ti svegli sedutə alla scrivania. Le luci al neon tremolano sopra di te. Nessuno intorno. L’aria sa di polvere,
+        cavi bruciati e vite interrotte.</p>
+    <p>Il monitor mostra una sola riga lampeggiante: <em>"Identità corrotta. Protocollo di emergenza attivo."</em></p>
+    <p>Fuori dalla stanza, un'anziana donna ti guarda. Oppure puoi restare qui, e accedere al terminale...</p>
+
+    <div class="choice">
+        <p><strong>Cosa fai?</strong></p>
+        <button onclick="scegli('anziana')">Esci e parli con l’anziana</button>
+        <button onclick="scegli('terminale')">Accedi al terminale di debug</button>
+    </div>
+
+    <div id="risultato" class="outcome"></div>
+    <button id="avanti" onclick="vaiAvanti()">Prosegui al Giorno 2</button>
+
+    <script src="../still-here/js/engine.js"></script>
+    <script>
+        if (bloccoSeGiaScelto("giorno1")) {
+            document.getElementById("risultato").innerText = "Hai già vissuto questo giorno. Preparati per il prossimo.";
+            document.getElementById("avanti").style.display = "inline-block";
+        }
+
+        function scegli(scelta) {
+            salvaScelta("giorno1", scelta);
+            const r = document.getElementById("risultato");
+
+            if (scelta === "anziana") {
+                r.innerHTML = "L'anziana ti osserva come se ti conoscesse da sempre. 'Non pensavo che saresti tornatə qui,' sussurra. Ma non ricordi di essere mai andatə via.";
+            } else {
+                r.innerHTML = "Lo schermo si accende. Dati corrotti, log in loop. Ma una riga spicca: <em>'Processo interrotto: soggetto già archiviato.'</em> Sei tu il soggetto?";
+            }
+
+            document.querySelectorAll("button").forEach(btn => btn.disabled = true);
+            document.getElementById("avanti").style.display = "inline-block";
+        }
+
+        function vaiAvanti() {
+            window.location.href = "giorno2.html";
+        }
+    </script>
+</body>
+
+</html>

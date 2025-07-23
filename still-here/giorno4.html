@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Still Here - Giorno 4</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #f2f2f2;
+            font-family: 'Courier New', monospace;
+            padding: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .choice {
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #666;
+        }
+
+        .outcome {
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        #avanti {
+            display: none;
+            margin-top: 20px;
+            background-color: #cc3d74;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Giorno 4: Instabilità</h1>
+    <p>Il mondo intorno a te trema. Oggetti si duplicano, muri svaniscono e tornano. Ogni passo genera un'eco sbagliata.
+        Il nucleo sta collassando.</p>
+    <p>Hai due possibilità: cercare il cuore del sistema per provare a spegnerlo, o entrare in un terminale esterno e
+        tentare di stabilizzarlo da fuori.</p>
+
+    <div class="choice">
+        <p><strong>Cosa fai?</strong></p>
+        <button onclick="scegli('spegni')">Cerchi il cuore e provi a spegnere tutto</button>
+        <button onclick="scegli('stabilizza')">Accedi al terminale esterno per stabilizzarlo</button>
+    </div>
+
+    <div id="risultato" class="outcome"></div>
+    <button id="avanti" onclick="vaiAvanti()">Prosegui al Giorno 5</button>
+
+    <script src="../still-here/js/engine.js"></script>
+    <script>
+        if (bloccoSeGiaScelto("giorno4")) {
+            document.getElementById("risultato").innerText = "Hai già vissuto questo giorno. Preparati per il prossimo.";
+            document.getElementById("avanti").style.display = "inline-block";
+        }
+
+        function scegli(scelta) {
+            salvaScelta("giorno4", scelta);
+            const r = document.getElementById("risultato");
+
+            if (scelta === "spegni") {
+                r.innerHTML = "Ti inoltri nel cuore del sistema. La luce diventa pulsante. Una voce ripete: 'Fine imminente. Irreversibile.' Ma premi comunque il pulsante rosso.";
+            } else {
+                r.innerHTML = "Dal terminale esterno, riscrivi alcune linee di codice. Il mondo smette di tremare. Per un attimo tutto è immobile. Ma qualcosa ti osserva... e non era previsto.";
+            }
+
+            document.querySelectorAll(".choice button").forEach(btn => btn.disabled = true);
+            document.getElementById("avanti").style.display = "inline-block";
+        }
+
+        function vaiAvanti() {
+            window.location.href = "giorno5.html";
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Still Here - Giorno 3</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #f2f2f2;
+            font-family: 'Courier New', monospace;
+            padding: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .choice {
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #666;
+        }
+
+        .outcome {
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        #avanti {
+            display: none;
+            margin-top: 20px;
+            background-color: #cc3d74;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Giorno 3: Il Ritorno</h1>
+    <p>Ti svegli in quella che sembra casa tua. Il sole filtra dalle tende. Il pavimento scricchiola come lo ricordavi.
+        Ma non sei a casa.</p>
+    <p>Senti odore di caffè. In cucina ci sei... tu. Ti guarda. Sorride. Oppure puoi chiuderti in bagno e cercare dietro
+        lo specchio.</p>
+
+    <div class="choice">
+        <p><strong>Cosa fai?</strong></p>
+        <button onclick="scegli('parla')">Parli con te stessə</button>
+        <button onclick="scegli('chip')">Cerchi dietro lo specchio</button>
+    </div>
+
+    <div id="risultato" class="outcome"></div>
+    <button id="avanti" onclick="vaiAvanti()">Prosegui al Giorno 4</button>
+
+    <script src="../still-here/js/engine.js"></script>
+    <script>
+        if (bloccoSeGiaScelto("giorno3")) {
+            document.getElementById("risultato").innerText = "Hai già vissuto questo giorno. Preparati per il prossimo.";
+            document.getElementById("avanti").style.display = "inline-block";
+        }
+
+        function scegli(scelta) {
+            salvaScelta("giorno3", scelta);
+            const r = document.getElementById("risultato");
+
+            if (scelta === "parla") {
+                r.innerHTML = "Ti guarda con i tuoi stessi occhi. 'Non siamo mai statə reali,' dice. 'Ma possiamo ancora scegliere chi vogliamo essere.' La sua voce è la tua, ma più calma.";
+            } else {
+                r.innerHTML = "Apri il pannello dietro lo specchio. C'è un chip con inciso il tuo nome. Un file si apre da solo: 'Backup pronto. Unico tentativo.' E un pulsante lampeggia: RIPRISTINA.";
+            }
+
+            document.querySelectorAll(".choice button").forEach(btn => btn.disabled = true);
+            document.getElementById("avanti").style.display = "inline-block";
+        }
+
+        function vaiAvanti() {
+            window.location.href = "giorno4.html";
+        }
+    </script>
+</body>
+
+</html>

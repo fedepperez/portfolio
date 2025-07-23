@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Still Here</title>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <meta charset="UTF-8" />
+    <title>Fedep Moodboard</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=VT323&family=Archivo+Black&family=Quicksand:wght@500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" type="image/png" href="../assets/img/favicon.png" />
+    <style>
+        #game-container {
+            width: 100%;
+            max-width: 800px;
+            aspect-ratio: 4 / 3;
+            margin: 50px auto;
+            border: 2px solid #cc3d74;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(204, 61, 116, 0.3);
+        }
+
+        #game-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        main {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .restart-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            background-color: #cc3d74;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .restart-btn:hover {
+            background-color: #e05693;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <!-- LOGO -->
+            <div class="logo">
+                <img src="../assets/img/logo.png" alt="Logo Fedep" class="logo-img" />
+                <span>Fedep</span>
+            </div>
+
+            <!-- NAVIGATION -->
+            <nav class="nav-links" id="navbar">
+                <a href="../index.html">Torna alla home</a>
+            </nav>
+
+            <!-- SOCIAL -->
+            <div class="social-icons">
+                <a href="mailto:fedeperezlav@gmail.com" aria-label="Email">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                </a>
+                <a href="https://github.com/fedepperez" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/federica-perez-184066203" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                </a>
+                <a href="https://it.fiverr.com/s/yv6EB0G" target="_blank" rel="noopener noreferrer" aria-label="Fiverr">
+                    <img src="../assets/img/fiverr.png" alt="Fiverr" class="social-icon-img" />
+                </a>
+            </div>
+
+            <!-- HAMBURGER (solo mobile) -->
+            <button class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    <main>
+        <h1>🎮 Still Here</h1>
+        <p class="intro-text">Ogni scelta conta.</p>
+
+        <div id="game-container">
+            <iframe id="game-frame" src="giorno1.html" title="Still Here - Giorno 1"></iframe>
+        </div>
+
+    </main>
+    <footer>
+        ✦ powered by @fedepperez ✦
+    </footer>
+</body>
+
+
+</html>

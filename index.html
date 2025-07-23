@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <header class="main-header">
+    <header>
         <div class="header-container">
             <!-- LOGO -->
             <div class="logo">
@@ -23,36 +23,34 @@
             </div>
 
             <!-- NAVIGATION -->
-            <nav class="nav-links" id="navMenu">
-                <a href="#home">Home</a>
-                <a href="#about">Chi sono</a>
-                <a href="#projects">Progetti</a>
-                <a href="#contact">Contatti</a>
+            <nav class="nav-container">
+                <div class="nav-links" id="navMenu">
+                    <a href="#home">Home</a>
+                    <a href="#about">Chi sono</a>
+                    <a href="#projects">Progetti</a>
+                    <a href="#contact">Contatti</a>
+                </div>
             </nav>
 
             <!-- SOCIAL -->
             <div class="social-icons">
-                <a href="mailto:fedeperezlav@gmail.com" aria-label="Email">
-                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-                </a>
-                <a href="https://github.com/fedepperez" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <i class="fab fa-github" aria-hidden="true"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/federica-perez-184066203" target="_blank" rel="noopener noreferrer"
-                    aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                </a>
-                <a href="https://it.fiverr.com/s/yv6EB0G" target="_blank" rel="noopener noreferrer" aria-label="Fiverr">
+                <a href="mailto:fedeperezlav@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://github.com/fedepperez" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/federica-perez-184066203" target="_blank"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <a href="https://it.fiverr.com/s/yv6EB0G" target="_blank">
                     <img src="assets/img/fiverr.png" alt="Fiverr" class="social-icon-img" />
                 </a>
             </div>
 
-            <!-- HAMBURGER (solo mobile) -->
-            <button class="hamburger" onclick="toggleMenu()">
+
+            <!-- HAMBURGER -->
+            <button class="hamburger" id="hamburger" onclick="toggleMenu()">
                 <i class="fas fa-bars"></i>
             </button>
         </div>
     </header>
+
 
     <section id="home">
         <div class="overlay"></div>
@@ -60,7 +58,8 @@
         <div class="banner-container">
             <img src="assets/img/banner.png" alt="Banner Fedep" class="banner" />
             <div class="quote">
-                Un giorno questa pagina sarà viva! <span class="highlight">Al momento è un working in progress ♡</span>
+                Un giorno questa pagina sarà viva! <span class="highlight">Al momento è un working in progress
+                    ♡</span>
             </div>
         </div>
     </section>
@@ -165,6 +164,16 @@
     </section>
 
     <section id="projects">
+        <h2>Progetti attuali!</h2>
+        <div class="quote">
+            <p>Oval Office Omelette</p>
+            <a href="oval-office-omelette/index.html"><span class="highlight">Clicca qui per giocare ad "Oval Office
+                    Omelette"!</span></a>
+        </div>
+        <div class="quote">
+            <p>Still here</p>
+            <a href="./still-here/index.html"><span class="highlight">Clicca qui per giocare a "Still Here"!</span></a>
+        </div>
         <h2>Progetti in arrivo</h2>
         <img src="https://media.giphy.com/media/xUPGcjGy8I928yIlAQ/giphy.gif" class="gif-img" alt="Loading" />
         <div class="quote">
@@ -197,7 +206,9 @@
             </div>
         </div>
         <div class="quote">
-            Scrivimi quando vuoi, per una collaborazione, per delle domande, <span class="highlight">o anche solo per un "ciao"</span> ♡
+            Scrivimi quando vuoi, per una collaborazione, per delle domande, <span class="highlight">o anche
+                solo per un
+                "ciao"</span> ♡
         </div>
     </section>
 
@@ -206,11 +217,16 @@
     </footer>
 
     <script>
+        document.getElementById("hamburger").addEventListener("click", function () {
+            document.getElementById("navMenu").classList.toggle("show");
+        });
+
+        // ANIMAZIONE CARDS
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('show');
-                    observer.unobserve(entry.target); // solo una volta
+                    observer.unobserve(entry.target);
                 }
             });
         }, {
@@ -221,6 +237,7 @@
             observer.observe(card);
         });
     </script>
+
 </body>
 
 </html>

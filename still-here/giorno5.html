@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Still Here - Giorno 5</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #f2f2f2;
+            font-family: 'Courier New', monospace;
+            padding: 40px;
+            line-height: 1.6;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .choice {
+            margin: 20px 0;
+        }
+
+        button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #666;
+        }
+
+        .outcome {
+            margin-top: 30px;
+            font-style: italic;
+        }
+
+        #avanti {
+            display: none;
+            margin-top: 20px;
+            background-color: #cc3d74;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Giorno 5: Specchio</h1>
+    <p>Lo spazio intorno a te è bianco. Nessun rumore, nessun riferimento. Soltanto una figura davanti a te, che cambia
+        forma a ogni battito di ciglia.</p>
+    <p>Ti parla con la tua voce, ma anche con quelle che hai dimenticato. Dice: <em>"Sei ancora qui. Ma chi sei?"</em>
+    </p>
+
+    <div class="choice">
+        <p><strong>Cosa fai?</strong></p>
+        <button onclick="scegli('ascolta')">Ti siedi e ascolti</button>
+        <button onclick="scegli('fuggi')">Volti le spalle e scappi</button>
+    </div>
+
+    <div id="risultato" class="outcome"></div>
+    <button id="avanti" onclick="vaiAvanti()">Prosegui al Giorno 6</button>
+
+    <script src="../still-here/js/engine.js"></script>
+    <script>
+        if (bloccoSeGiaScelto("giorno5")) {
+            document.getElementById("risultato").innerText = "Hai già vissuto questo giorno. Preparati per il prossimo.";
+            document.getElementById("avanti").style.display = "inline-block";
+        }
+
+        function scegli(scelta) {
+            salvaScelta("giorno5", scelta);
+            const r = document.getElementById("risultato");
+
+            if (scelta === "ascolta") {
+                r.innerHTML = "Rimani. La figura ti racconta tutto: ogni memoria cancellata, ogni emozione trattenuta, ogni scelta che hai dimenticato di aver fatto. Ti stringe la mano. E sei tu.";
+            } else {
+                r.innerHTML = "Corri. Lo spazio si piega, urla senza suono ti attraversano. La figura resta indietro, e mentre ti allontani ti sussurra: 'Non puoi scappare da ciò che sei.'";
+            }
+
+            document.querySelectorAll(".choice button").forEach(btn => btn.disabled = true);
+            document.getElementById("avanti").style.display = "inline-block";
+        }
+
+        function vaiAvanti() {
+            window.location.href = "giorno6.html";
+        }
+    </script>
+</body>
+
+</html>
