@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fedep Moodboard</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=VT323&family=Archivo+Black&family=Quicksand:wght@500&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" type="image/png" href="assets/img/favicon.png" />
+</head>
+
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <!-- LOGO -->
+            <div class="logo">
+                <img src="assets/img/logo.png" alt="Logo Fedep" class="logo-img" />
+                <span>Fedep</span>
+            </div>
+
+            <!-- NAVIGATION -->
+            <nav class="nav-links" id="navMenu">
+                <a href="#home">Home</a>
+                <a href="#about">Chi sono</a>
+                <a href="#projects">Progetti</a>
+                <a href="#contact">Contatti</a>
+            </nav>
+
+            <!-- SOCIAL -->
+            <div class="social-icons">
+                <a href="mailto:fedeperezlav@gmail.com" aria-label="Email">
+                    <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                </a>
+                <a href="https://github.com/fedepperez" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github" aria-hidden="true"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/federica-perez-184066203" target="_blank" rel="noopener noreferrer"
+                    aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in" aria-hidden="true"></i>
+                </a>
+                <a href="https://it.fiverr.com/s/yv6EB0G" target="_blank" rel="noopener noreferrer" aria-label="Fiverr">
+                    <img src="assets/img/fiverr.png" alt="Fiverr" class="social-icon-img" />
+                </a>
+            </div>
+
+            <!-- HAMBURGER (solo mobile) -->
+            <button class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <section id="home">
+        <div class="overlay"></div>
+        <h1>Benvenutə nella Moodboard di Fede</h1>
+        <div class="banner-container">
+            <img src="assets/img/banner.png" alt="Banner Fedep" class="banner" />
+            <div class="quote">
+                Un giorno questa pagina sarà viva! <span class="highlight">Al momento è un working in progress ♡</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2>Chi sono?</h2>
+        <div class="quote intro-quote">
+            Mi chiamo Federica, ma online mi trovi come <span class="highlight">Fedep</span> .
+            Sono una sviluppatrice junior con un cuore da designer:
+            creo siti web curati fin nei dettagli, con un'estetica dolce e accessibile,
+            ma senza mai dimenticare ordine, codice pulito e funzionalità.
+
+            <br><br>
+
+            Sto studiando per diventare <span class="highlight">Full Stack Developer</span> ,
+            ma già ora mi occupo di <span class="highlight">frontend responsive</span> ,
+            interfacce user-friendly e microanimazioni che danno vita a una pagina.
+
+            <br><br>
+
+            Ogni sezione di questo sito è fatta a mano - codice, grafica, illustrazioni -
+            con la stessa cura che metterei nei tuoi progetti. ♡
+        </div>
+
+        <h2>GIF che mi rappresentano?</h2>
+        <img src="https://media.giphy.com/media/f9k1tV7HyORcngKF8v/giphy.gif" class="gif-img" alt="Rainbows" />
+        <img src="https://media.giphy.com/media/3oKIPtjElfqwMOTbH2/giphy.gif" class="gif-img" alt="Coding girl" />
+        <div class="quote">
+            Tutto ciò che creo ha un pezzetto di <span class="highlight">me</span> e del mio modo di
+            <span class="highlight">stare al mondo</span>.
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="overlay"></div>
+        <h2>Competenze</h2>
+
+        <div class="skills-group">
+            <h3>Linguaggi</h3>
+            <div class="skills-card-grid">
+                <div class="skill-card"><i class="fab fa-html5"></i>
+                    <p>HTML5</p>
+                </div>
+                <div class="skill-card"><i class="fab fa-css3-alt"></i>
+                    <p>CSS3</p>
+                </div>
+                <div class="skill-card"><i class="fab fa-js"></i>
+                    <p>JavaScript</p>
+                </div>
+                <div class="skill-card"><i class="fab fa-java"></i>
+                    <p>Java</p>
+                </div>
+                <div class="skill-card"><i class="fab fa-python"></i>
+                    <p>Python</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills-group">
+            <h3>Piattaforme</h3>
+            <div class="skills-card-grid">
+                <div class="skill-card"><i class="fas fa-server"></i>
+                    <p>WordPress</p>
+                </div>
+                <div class="skill-card"><i class="fas fa-globe"></i>
+                    <p>GitHub Pages</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="skills-group">
+            <h3>Strumenti</h3>
+            <div class="skills-card-grid">
+                <div class="skill-card"><i class="fab fa-git-alt"></i>
+                    <p>Git</p>
+                </div>
+                <div class="skill-card"><i class="fab fa-github"></i>
+                    <p>GitHub</p>
+                </div>
+                <div class="skill-card"><i class="fas fa-code"></i>
+                    <p>VS Code</p>
+                </div>
+                <div class="skill-card"><i class="fas fa-terminal"></i>
+                    <p>Git Bash</p>
+                </div>
+                <div class="skill-card">
+                    <i class="fas fa-laptop-code"></i>
+                    <p>Spring + Eclipse</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="skills-group">
+            <h3>Database</h3>
+            <div class="skills-card-grid">
+                <div class="skill-card"><i class="fas fa-database"></i>
+                    <p>MySQL</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Progetti in arrivo</h2>
+        <img src="https://media.giphy.com/media/xUPGcjGy8I928yIlAQ/giphy.gif" class="gif-img" alt="Loading" />
+        <div class="quote">
+            Al momento non c'è molto, ma ci lavoro tutti i giorni
+            <span class="highlight">e verrà costantemente aggiornato</span>!
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contatti</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <p>Email</p>
+                <a href="mailto:fedeperezlav@gmail.com">fedeperezlav@gmail.com</a>
+            </div>
+            <div class="contact-card">
+                <p>GitHub</p>
+                <a href="https://github.com/fedepperez" target="_blank"
+                    rel="noopener noreferrer">github.com/fedepperez</a>
+            </div>
+            <div class="contact-card">
+                <p>Fiverr</p>
+                <a href="https://it.fiverr.com/s/yv6EB0G" target="_blank"
+                    rel="noopener noreferrer">fiverr.com/fedepperez</a>
+            </div>
+            <div class="contact-card">
+                <p>LinkedIn</p>
+                <a href="https://www.linkedin.com/in/federica-perez-184066203" target="_blank"
+                    rel="noopener noreferrer">linkedin.com/in/federica-perez-184066203</a>
+            </div>
+        </div>
+        <div class="quote">
+            Scrivimi quando vuoi, per una collaborazione, per delle domande, <span class="highlight">o anche solo per un "ciao"</span> ♡
+        </div>
+    </section>
+
+    <footer>
+        ✦ powered by @fedepperez ✦
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                    observer.unobserve(entry.target); // solo una volta
+                }
+            });
+        }, {
+            threshold: 0.3
+        });
+
+        document.querySelectorAll('.skill-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+
+</html>
